@@ -1,0 +1,85 @@
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <functional>
+using namespace std;
+
+int main() {
+    vector<int> v = {10, 20, 30, 20, 40};
+    vector <int>::iterator it;
+
+    for(it=v.begin();it!=v.end();it++){
+        cout<<*it;
+    }
+    // 1. push_back()
+    v.push_back(50);
+
+    // 2. insert()
+    v.insert(v.begin() + 1, 15);
+
+    // 3. Display vector
+    cout << "Vector: ";
+    for (int x : v)
+        cout << x << " ";
+    cout << endl;
+
+    // 4. front() and back()
+    cout << "First element: " << v.front() << endl;
+    cout << "Last element: " << v.back() << endl;
+
+    // 5. size() and empty()
+    cout << "Size: " << v.size() << endl;
+    cout << "Is empty? " << v.empty() << endl;
+
+    // 6. pop_back()
+    v.pop_back();
+
+    // 7. erase()
+    v.erase(v.begin() + 1);
+
+    cout << "After deletion: ";
+    for (int x : v)
+        cout << x << " ";
+    cout << endl;
+
+    // 8. remove all occurrences of 20
+    v.erase(remove(v.begin(), v.end(), 20), v.end());
+
+    cout << "After removing 20: ";
+    for (int x : v)
+        cout << x << " ";
+    cout << endl;
+
+    // 9. Ascending sort
+    sort(v.begin(), v.end());
+
+    cout << "Ascending: ";
+    for (int x : v)
+        cout << x << " ";
+    cout << endl;
+
+    // 10. Descending sort
+    sort(v.begin(), v.end(), greater<int>());
+
+    cout << "Descending: ";
+    for (int x : v)
+        cout << x << " ";
+    cout << endl;
+
+    // 11. reverse()
+    reverse(v.begin(), v.end());
+
+    cout << "Reversed: ";
+    for (int x : v)
+        cout << x << " ";
+    cout << endl;
+
+    // 12. clear()
+    v.clear();
+
+    cout << "Size after clear: " << v.size() << endl;
+    cout << "Is empty now? " << v.empty() << endl;
+
+    return 0;
+}
