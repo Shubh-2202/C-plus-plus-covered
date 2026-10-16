@@ -1,0 +1,49 @@
+
+#include <iostream>
+#include <map>
+#include <string>
+using namespace std;
+
+int main() {
+    map<int, string> students;
+
+    // 1. Insert elements
+    students.insert({103, "Aman"});
+    students.insert({101, "Rahul"});
+    students[102] = "Priya";
+
+    // 2. Display map
+    cout << "Student records:\n";
+    for (auto p : students) {
+        cout << p.first << " " << p.second << endl;
+    }
+
+    // 3. Access a value
+    cout << "Student 102: " << students.at(102) << endl;
+
+    // 4. Search using find()
+    if (students.find(103) != students.end()) {
+        cout << "Roll 103 found\n";
+    }
+
+    // 5. Check using count()
+    cout << "Roll 101 exists: " << students.count(101) << endl;
+
+    // 6. Size
+    cout << "Size: " << students.size() << endl;
+
+    // 7. Erase
+    students.erase(102);
+
+    cout << "Size after erase: " << students.size() << endl;
+
+    // 8. Empty
+    cout << "Is empty? " << students.empty() << endl;
+
+    // 9. Clear
+    students.clear();
+
+    cout << "Size after clear: " << students.size() << endl;
+
+    return 0;
+}
